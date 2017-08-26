@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>signup</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body style="color:White;">
+		<br><br><br><br><br><br><br><br>
+		 <div class="login-page">
+
+	  		<div class="form">
+
+ 	   			<form class="register-form" name = "register-form" method="POST">
+				<center><table>
+				<tr>
+					<td>	 
+						<input type="text" name="username" value="" placeholder="Enter username" Required="Required" size="30">
+					</td>
+				</tr><br>
+				<tr>
+					<td>	 
+						<input type="text" name="gmail" value="" placeholder="Enter gmail" Required="Required" size="30">
+					</td>
+				</tr><br>
+				<tr>
+					<td>    
+						<input type="password" name="password" value="" placeholder="Enter password" Required="Required" size="30">
+					</td>
+				</tr><br>
+				<tr>
+					<td>	 
+						<input type="numeric" name="mobile" value="" placeholder="mobile" Required="Required" size="30">
+					</td>
+				</tr><br>
+				<tr>
+					<td>
+						<center><input type="button" value="Signup" onclick="signupaction()"></center>
+					</td>
+				</tr><br>
+				</table></center>
+			</form>
+		</div>
+		</div>
+	 <script>
+
+        	$('.message a').click(function(){
+
+           	$('form').animate({height: "toggle", opacity: "toggle"}, "fast");
+
+        });
+
+    	</script>
+
+
+	</body>
+</html>
