@@ -8,7 +8,6 @@
    		<meta name="viewport" content="width=device-width, initial-scale=1">
  
 		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-		<script src="/assets/js/jquery-3.2.1.min.js"></script>
         <script src="https://github.com/hasura/js-sdk/releases/download/v0.1.2/hasura.min.js"></script>
         <script>
             hasura.setBaseDomain('c100.hasura.me');
@@ -37,7 +36,7 @@
 					</tr>
 					<tr>
 						<td>
-							<center><input type="button" value="Login" id="login_btn"></center>
+							<center><input type="submit" value="Login" id="login_btn"></center>
 						</td>
 					</tr>
 					</table></center>
@@ -47,7 +46,7 @@
 		<a href="filename.html"><font size="+2">Forgot password?</font></a>
 		<br>
 		<br>
-		<font size="+2"><a href="s2.html">New user Signup!</a></font>
+		<font size="+2"><a href="/signup">New user Signup!</a></font>
 		
 		 <script type="text/javascript">
        			var login_form = document.getElementById('login_form');
@@ -66,6 +65,7 @@
                         l_pass.value, 
                         (sdata) => {
                             console.log('Login successfull: ' + sdata);
+                            window.location = "/app";
                         },
                         (edata) => {
                             console.log('Error occured :' + edata)

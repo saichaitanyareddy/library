@@ -18,6 +18,11 @@ app.get('/app', function (req, res) {
     res.sendFile(path.join(__dirname, 'ui/s3.html'));
 });
 
+app.all('/*', function(req, res){
+   res.sendFile(path.join(__dirname, 'ui/404.html')); 
+});
+
+
 app.listen(8080, function () {
   console.log('library app listening on port 8080!');
 });

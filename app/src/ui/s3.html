@@ -3,17 +3,20 @@
 	<head>
 		<title>Homepage</title>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<script src="https://github.com/hasura/js-sdk/releases/download/v0.1.2/hasura.min.js"></script>
+        <script>
+            hasura.setBaseDomain('c100.hasura.me');
+            hasura.disableHttps(); // No HTTPS enabled on local-development
+        </script>
+        
 			<style>
 				h1{
 					text-align:center;
 					color:White;
 					font-family:Axial;
 				}
-				body{
-					background-image:url("books.jpg");
-					font-family:Georgia;
-					text-align:center;
-				}
+				
 				a{
 					text-decoration:none;
 					text-align:center;	
@@ -29,48 +32,52 @@
 				img:hover {
    				 box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
 				}
-				input[type=button] {
-						    width: 30%;
-						    background-color: #008CBA;
-						    color: white;
-						    padding: 14px 20px;
-						    margin: 8px 0;
-						    border: none;
-						    border-radius: 4px;
-						    cursor: pointer;
-						}
-
-				input[type=button]:hover {
-						    background-color: #45a049;
-						}
+				
 
 
 		</style>
 	</head>
 	<body>
+        <button id="logout_btn">Logout </button>
 		<h1><u>Books are available for Download are:<u></h1>
 		<form action="filename.html" method="POST">
 		<div id="new">
 		
 		<a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwja8ODx-YbVAhWILo8KHbgMDV8QFggsMAE&url=http%3A%2F%2Fagce.sets.edu.in%2Fcse%2Febook%2FDBMS%2520BY%2520RAGHU%2520RAMAKRISHNAN.pdf&usg=AFQjCNHBaYVxn0dmd_kNWIoZjl_EbMLJJg">
-		<img src="dbms.jpg" align="left"></a>
+		<img src="/assets/image/dbms.jpg" align="left"></a>
 		
 		<a href="http://freequestionpaper.in/questionpaper/2014/08/Software-Engineering-Roger-S-Pressman-5th-edition-IDM.pdf">
-		<img src="se.jpg" align="middle"></a>
+		<img src="/assets/image/se.jpg" align="middle"></a>
 		
 		<a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwjcnLrJ_IbVAhUGMo8KHaTdBQIQFggqMAE&url=http%3A%2F%2Fwww.uobabylon.edu.iq%2Fdownload%2FM.S%25202013-2014%2FOperating_System_Concepts%2C_8th_Edition%5BA4%5D.pdf&usg=AFQjCNF5xwqJVXgGWK3X-STKyEAtMsyYfA">
-		<img src="os.jpg" align="right"></a><br><br><br><br><br><br><br><br>
+		<img src="/assets/image/os.jpg" align="right"></a><br><br><br><br><br><br><br><br>
 		
 		<a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&ved=0ahUKEwjxnfG0-4bVAhVLsI8KHe08A-YQFggpMAE&url=http%3A%2F%2Fiiti.ac.in%2Fpeople%2F~tanimad%2FJavaTheCompleteReference.pdf&usg=AFQjCNFxlO24MSphZbZrglmo7i85eoIt0Q">
-		<img src="java.jpg" align="left"></a>
+		<img src="/assets/image/java.jpg" align="left"></a>
 		
 		<a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=2&cad=rja&uact=8&sqi=2&ved=0ahUKEwjPi7yT_YbVAhXDso8KHaCqD-MQFggpMAE&url=http%3A%2F%2Ftoc.dreamtechpress.com%2Ftoc_978-81-7722-997-4.pdf&usg=AFQjCNFgPkZKQGFrg4pJ5sDFp2Em1QTmWw">
-		<img src="wt.jpg" align="middle"></a><br><br><br><br>
+		<img src="/assets/image/wt.jpg" align="middle"></a><br><br><br><br>
 		
-		<p align="center">
-  			<a href="index.html"><input type="button" value="Logout" onclick=""></a>
-		</p>
 		
 		</form>
+		
+		
+		<script type="text/javascript">
+            var logout_btn = document.getElementById('logout_btn');
+            var logout_process = (e) => {
+                //e.preventDefault();
+                
+                hasura.auth.logout(
+                    (sdata) => {
+                        console.log("Logout success : " + sdata);
+                        window.location = "/";
+                    },
+                    (edata) => {
+                        console.log("Logout Failed : " + edata);
+                    }
+                );
+            }
+            logout_btn.addEventListener('click', logout_process);
+        </script>
 	</body>
 </html>
