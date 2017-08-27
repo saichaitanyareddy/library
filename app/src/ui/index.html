@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+		<title>Login</title>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+   		<meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+		<script src="/assets/js/jquery-3.2.1.min.js"></script>
+        <script src="https://github.com/hasura/js-sdk/releases/download/v0.1.2/hasura.min.js"></script>
+        <script>
+            hasura.setBaseDomain('c100.hasura.me');
+            hasura.disableHttps(); // No HTTPS enabled on local-development
+        </script>
+</body>
+        
+    </head>
+	<body style="color:White;">
+		<br><br><br><br><br><br><br><br><br><br>
+		<b><font size="+4">Welcome to Library</font></b>
+		<div class="login-page">
+
+	  		<div class="form">
+				<form class="login-form" name="login-form" id="login_form">
+					<center><table>
+					<tr>
+						<td>	 
+							<input type="text" id="l_uname" value="" placeholder="Enter username" Required="Required" size="30">
+						</td>
+					</tr>
+					<tr>
+						<td>    
+							<input type="password" id="l_pass" value="" placeholder="Enter password" Required="Required" size="30">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<center><input type="button" value="Login" id="login_btn"></center>
+						</td>
+					</tr>
+					</table></center>
+				</form>
+			</div>
+		</div>
+		<a href="filename.html"><font size="+2">Forgot password?</font></a>
+		<br>
+		<br>
+		<font size="+2"><a href="s2.html">New user Signup!</a></font>
+		
+		 <script type="text/javascript">
+       			var login_form = document.getElementById('login_form');
+                var login_btn = document.getElementById('login_btn');
+                
+                var login_process = function(e){
+                    e.preventDefault();
+                    var l_uname = document.getElementById('l_uname');
+                    var l_pass = document.getElementById('l_pass');
+                    
+                    console.log('Initiated login!'); 
+                    
+                    hasura.setUsername(l_uname.value);
+                    
+                    hasura.auth.login(
+                        l_pass.value, 
+                        (sdata) => {
+                            console.log('Login successfull: ' + s);
+                        },
+                        (edata) => {
+                            console.log('Error occured :' + e)
+                        }                       
+                    );
+                };
+                login_form.addEventListener('submit', login_process);
+                login_btn.addEventListener('click', login_process);
+
+    		</script>
+	</body>
+</html>
+
+			

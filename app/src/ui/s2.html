@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>signup</title>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="jquery-3.2.1.min.js"></script>
+	</head>
+	<body style="color:White;">
+		<br><br><br><br><br><br><br><br>
+		 <div class="login-page">
+
+	  		<div class="form">
+
+ 	   			<form class="register-form" name="register-form" id="signup_form">
+				<center><table>
+				<tr>
+					<td>	 
+						<input type="text" name="username" value="" placeholder="Username" size="30" autofocus id="s_uname">
+					</td>
+				</tr><br>
+				<tr>
+					<td>	 
+						<input type="text" name="email" value="" placeholder="Email" size="30" id="s_email">
+					</td>
+				</tr><br>
+				<tr>
+					<td>    
+						<input type="password" name="password" value="" placeholder="Password" size="30" id="s_pass">
+					</td>
+				</tr><br>
+				<tr>
+					<td>	 
+						<input type="numeric" name="mobile" value="" placeholder="Mobile" size="30" id="s_mobile">
+					</td>
+				</tr><br>
+				<tr>
+					<td>
+						<center><input type="submit" value="Sign Up"></center>
+					</td>
+				</tr><br>
+				</table></center>
+			</form>
+		</div>
+		</div>
+		
+    <script type="text/javascript">
+        var auth_url = "http://auth.c100.hasura.me";
+        //var data_url = "http://data.c100.hasura.me";
+
+        var signup_form = document.getElementById('signup_form');
+
+        var signup = function(){
+            
+            var s_uname = document.getElementById('s_uname');
+            var s_email = document.getElementById('s_email');
+            var s_pass = document.getElementById('s_pass');
+            var s_mobile = document.getElementById('s_mobile');
+            
+            var s_data = {
+                username : s_uname.value,
+                email : s_email.value,
+                password  : s_pass.value,
+                mobile  : s_mobile.value
+            };
+            console.log('Initiated signup!');
+        }
+        signup_form.addEventListener('submit', signup);
+        
+        
+    </script>
+	</body>
+</html>
