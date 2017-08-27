@@ -65,10 +65,10 @@
                     hasura.auth.login(
                         l_pass.value, 
                         (sdata) => {
-                            console.log('Login successfull: ' + s);
+                            console.log('Login successfull: ' + sdata);
                         },
                         (edata) => {
-                            console.log('Error occured :' + e)
+                            console.log('Error occured :' + edata)
                         }                       
                     );
                 };

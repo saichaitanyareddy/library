@@ -49,23 +49,32 @@
         //var data_url = "http://data.c100.hasura.me";
 
         var signup_form = document.getElementById('signup_form');
+        var signup_btn = document.getElementById('signup_btn');
 
-        var signup = function(){
-            
+        var signup_process = function(e){
+            e.preventDefault();
             var s_uname = document.getElementById('s_uname');
             var s_email = document.getElementById('s_email');
             var s_pass = document.getElementById('s_pass');
             var s_mobile = document.getElementById('s_mobile');
             
-            var s_data = {
-                username : s_uname.value,
-                email : s_email.value,
-                password  : s_pass.value,
-                mobile  : s_mobile.value
-            };
-            console.log('Initiated signup!');
+            console.log('Initiated Signup!'); 
+                    
+            hasura.setUsername(s_uname.value);
+            
+            
+            hasura.auth.signup(
+                s_pass.value, 
+                (sdata) => {
+                    console.log('Login successfull: ' + sdata);
+                },
+                (edata) => {
+                    console.log('Error occured :' + edata)
+                }                       
+            );
         }
-        signup_form.addEventListener('submit', signup);
+        signup_form.addEventListener('submit', signup_process);
+        signup_btn.addEventListener('click', signup_process);
         
         
     </script>
