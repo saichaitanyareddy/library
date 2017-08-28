@@ -60,8 +60,7 @@
         var signup_form = document.getElementById('signup_form');
         var signup_btn = document.getElementById('signup_btn');
 
-        var signup_process = function(e){
-            e.preventDefault();
+        var signup_process = function(){
             var s_uname = document.getElementById('s_uname');
             var s_email = document.getElementById('s_email');
             var s_pass = document.getElementById('s_pass');
@@ -71,11 +70,10 @@
                     
             hasura.setUsername(s_uname.value);
             
-            
             hasura.auth.signup(
                 s_pass.value, 
                 (sdata) => {
-                    console.log('Login successfull: ' + sdata);
+                    console.log('Signup successfull: ' + sdata);
                     window.location = "/app";
                 },
                 (edata) => {
