@@ -20,17 +20,18 @@
 				<center><table>
 				<tr>
 					<td>	 
-						<input type="text" name="username" value="" placeholder="Username" size="30" autofocus id="s_uname">
+						<input type="text" name="username" value="" placeholder="Username" size="30" autofocus id="s_uname" Required="Required">
+					</td>
+				</tr><br>
+				<tr>
+					<td>    
+						<input type="password" name="password" value="" placeholder="Password" size="30" id="s_pass" Required="Required">
+						(Atleast 8 character)
 					</td>
 				</tr><br>
 				<tr>
 					<td>	 
 						<input type="text" name="email" value="" placeholder="Email" size="30" id="s_email">
-					</td>
-				</tr><br>
-				<tr>
-					<td>    
-						<input type="password" name="password" value="" placeholder="Password" size="30" id="s_pass">
 					</td>
 				</tr><br>
 				<tr>
@@ -74,6 +75,7 @@
                 },
                 (edata) => {
                     console.log('Error occured')
+                    window.location('/');
                 }                       
             );
         }
