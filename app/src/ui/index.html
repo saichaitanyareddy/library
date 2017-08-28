@@ -9,7 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
         <script src="https://github.com/hasura/js-sdk/releases/download/v0.1.2/hasura.min.js"></script>
         <script>
-            hasura.setBaseDomain('c100.hasura.me');
+            hasura.setBaseDomain('saichaitanya.hasura.me');
             hasura.disableHttps(); // No HTTPS enabled on local-development
         </script>
 </body>
@@ -63,11 +63,11 @@
                     hasura.auth.login(
                         l_pass.value, 
                         (sdata) => {
-                            console.log('Login successfull: ' + sdata);
+                            console.log('Login successfull');
                             window.location = "/app";
                         },
                         (edata) => {
-                            console.log('Error occured :' + edata)
+                            console.log('Error occured')
                         }                       
                     );
                 };

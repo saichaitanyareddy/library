@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 		<script src="https://github.com/hasura/js-sdk/releases/download/v0.1.2/hasura.min.js"></script>
         <script>
-            hasura.setBaseDomain('c100.hasura.me');
+            hasura.setBaseDomain('saichaitanya.hasura.me');
             hasura.disableHttps(); // No HTTPS enabled on local-development
         </script>
 	</head>
@@ -54,9 +54,6 @@
 		</div>
 		
     <script type="text/javascript">
-        var auth_url = "http://auth.c100.hasura.me";
-        //var data_url = "http://data.c100.hasura.me";
-
         var signup_form = document.getElementById('signup_form');
         var signup_btn = document.getElementById('signup_btn');
 
@@ -65,22 +62,18 @@
             var s_uname = document.getElementById('s_uname');
             var s_email = document.getElementById('s_email');
             var s_pass = document.getElementById('s_pass');
-            var s_mobile = document.getElementById('s_mobile');
-            
-            console.log('Initiated Signup!'); 
+            var s_mobile = document.getElementById('s_mobile'); 
                     
             hasura.setUsername(s_uname.value);
             
             hasura.auth.signup(
                 s_pass.value, 
                 (sdata) => {
-                    let smes = JSON.parse(sdata);
-                    console.log('Signup successfull: ' + smes);
+                    console.log('Signup successfull');
                     window.location = "/app";
                 },
                 (edata) => {
-                    let emes = JSON.parse(edata);
-                    console.log('Error occured :' + emes)
+                    console.log('Error occured')
                 }                       
             );
         }

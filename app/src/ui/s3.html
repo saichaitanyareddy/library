@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="/assets/css/style.css">
 		<script src="https://github.com/hasura/js-sdk/releases/download/v0.1.2/hasura.min.js"></script>
         <script>
-            hasura.setBaseDomain('c100.hasura.me');
+            hasura.setBaseDomain('saichaitanya.hasura.me');
             hasura.disableHttps(); // No HTTPS enabled on local-development
         </script>
         <style>
@@ -30,6 +30,21 @@
             }
             img:hover {
                 box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+            }
+            #logout_btn{
+                position: absolute;
+                top: 1em;
+                right: 1em;
+                padding: 10px 20px;
+                background-color: #ddd;
+                color: #bbb;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
+            #logout_btn:hover{
+                color:#fff;
+                background-color:#777;
             }
     </style>
 	</head>
@@ -61,7 +76,7 @@
 		<script type="text/javascript">
             var logout_btn = document.getElementById('logout_btn');
             var logout_process = (e) => {
-                //e.preventDefault();
+                e.preventDefault();
                 
                 hasura.auth.logout(
                     (sdata) => {
