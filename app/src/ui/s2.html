@@ -61,6 +61,7 @@
         var signup_btn = document.getElementById('signup_btn');
 
         var signup_process = function(){
+            e.preventDefault();
             var s_uname = document.getElementById('s_uname');
             var s_email = document.getElementById('s_email');
             var s_pass = document.getElementById('s_pass');
@@ -73,11 +74,14 @@
             hasura.auth.signup(
                 s_pass.value, 
                 (sdata) => {
-                    console.log('Signup successfull: ' + sdata);
+                    let smes = JSON.parse(sdata);
+                    console.log('Signup successfull: ' + smes);
+                    
                     window.location = "/app";
                 },
                 (edata) => {
-                    console.log('Error occured :' + edata)
+                    let emes = JSON.parse(edata);
+                    console.log('Error occured :' + emes)
                 }                       
             );
         }
