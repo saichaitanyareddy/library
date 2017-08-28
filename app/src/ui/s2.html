@@ -60,7 +60,7 @@
         var signup_form = document.getElementById('signup_form');
         var signup_btn = document.getElementById('signup_btn');
 
-        var signup_process = function(){
+        var signup_process = function(e){
             e.preventDefault();
             var s_uname = document.getElementById('s_uname');
             var s_email = document.getElementById('s_email');
@@ -76,7 +76,6 @@
                 (sdata) => {
                     let smes = JSON.parse(sdata);
                     console.log('Signup successfull: ' + smes);
-                    
                     window.location = "/app";
                 },
                 (edata) => {
