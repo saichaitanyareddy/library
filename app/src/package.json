@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Sai chaitanya",
   "license": "ISC",
   "dependencies": {
     "express": "^4.14.0"
